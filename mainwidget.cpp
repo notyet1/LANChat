@@ -41,9 +41,9 @@ void MainWidget::ReadMessage()
         datagram.resize(receiver->pendingDatagramSize());
         receiver->readDatagram(datagram.data(),datagram.size());
 
-        text2.clear();
-        text2.prepend(datagram);
-        ui->textBrowser_PrintMsg->setHtml(text2);
+        text2=QString::fromUtf8(datagram);
+
+        ui->textBrowser_PrintMsg->append(text2);
     }
 }
 
